@@ -37,7 +37,7 @@
 	ro.observe(document.getElementById("SubTitle"));
 	ro.observe(document.getElementById("ContentTitle"));
 
-	function ReadJSONFile(){
+	function readJSONFile(){
 			console.log("Made it to ReadJSONFile, da doo doo doo");
 	}
 	
@@ -186,7 +186,7 @@
 			subTitle.innerHTML = "Test";
 			subMenu.innerHTML="&nbsp";
 			contentTitleBar.className = "titleBar3Empty";
-			call ReadJSONFile();
+			readJSONFile();
 			break;
 			
 		  //---------------------------
