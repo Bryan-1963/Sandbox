@@ -1749,9 +1749,9 @@
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox//Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 		let myText = await myObject.text();
 		resultsDisplay.innerText = "<br><br>" + myText;
-		console.log("1) = |" + myText + "|");
-		let testObj = JSON.parse(myText);
-		console.log("1) = " + JSON.stringify(testObj));
+		console.log("myText = |" + myText + "|");
+		//let testObj = JSON.parse(myText);
+		//console.log("1) = " + JSON.stringify(testObj));
 	}
 	
 	
