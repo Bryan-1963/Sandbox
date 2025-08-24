@@ -37,6 +37,9 @@
 	ro.observe(document.getElementById("SubTitle"));
 	ro.observe(document.getElementById("ContentTitle"));
 
+	function ReadJSONFile(){
+			console.log("Made it to ReadJSONFile, da doo doo doo");
+	}
 	
 	//==========================================================================================
 	// startup
