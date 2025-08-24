@@ -1759,7 +1759,7 @@
 		myHTML=myHTML + "<img src='" + testObj[0].photoFilePath;
 		myHTML=myHTML + "' style='max-height: 400px;'>";
 		myHTML=myHTML + "<figcaption>" + testObj[0].annotation;
-		myHTML=myHTML + ""</figcaption>";
+		myHTML=myHTML + "</figcaption>";
 		myHTML=myHTML + "</figure>";
 		tstContnt.innerHTML=myHTML;
 		
