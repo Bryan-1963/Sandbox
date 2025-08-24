@@ -49,7 +49,7 @@
 		console.log("testObj = " + JSON.stringify(testObj));
 		console.log("testObj[0] = " + JSON.stringify(testObj[0]));
 		let thisPath = "";
-		thisPath = testObj[0]['photoFilePath'].text();
+		thisPath = testObj[0]['photoFilePath'].toString();
 		//thisPath = thisPath.replace(/\\/g,"\")
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
