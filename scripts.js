@@ -1744,7 +1744,7 @@
 	// ReadJSONFile
 	//==========================================================================================	
 	async function ReadJSONFile(){
-		console.log("Made it to ReadJSONFile");
+		console.log("Made it to ReadJSONFile, da doo doo doo");
 		var resultsDisplay = document.getElementById("testResults");
 		var tstContnt = document.getElementById("testContent");
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox//Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
