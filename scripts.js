@@ -186,7 +186,7 @@
 			subTitle.innerHTML = "Test";
 			subMenu.innerHTML="&nbsp";
 			contentTitleBar.className = "titleBar3Empty";
-			ReadJSONFile();
+			call ReadJSONFile();
 			break;
 			
 		  //---------------------------
