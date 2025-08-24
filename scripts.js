@@ -1746,7 +1746,7 @@
 	async function ReadJSONFile(){
 		console.log("Made it to ReadJSONFile");
 		var resultsDisplay = document.getElementById("testResults");
-		var tstContnt = = document.getElementById("testContent");
+		var tstContnt = document.getElementById("testContent");
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox//Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 		let myText = await myObject.text();
 		resultsDisplay.innerText = "<br><br>" + myText;
@@ -1761,7 +1761,7 @@
 		myHTML=myHTML + "<figcaption>" + testObj[0].annotation;
 		myHTML=myHTML + ""</figcaption>";
 		myHTML=myHTML + "</figure>";
-
+		tstContnt.innerHTML=myHTML;
 		
 	}
 	
