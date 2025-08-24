@@ -182,7 +182,12 @@
 		  //---------------------------
 		  case 'Test':
 		  //---------------------------		  
-
+			contentSource="Test/Test.html"
+			subTitle.innerHTML = "Test";
+			subMenu.innerHTML="&nbsp";
+			contentTitleBar.className = "titleBar3Empty";
+			call ReadJSONFile();
+			break;
 			
 		  //---------------------------
 		  case 'Home':
