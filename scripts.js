@@ -1748,8 +1748,8 @@
 		var resultsDisplay = document.getElementById("testResults");
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox//Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 		let myText = await myObject.text();
-		resultsDisplay.innerText = myText;
-		console.log(myObject.length);
+		resultsDisplay.innerText = "<br><br>" + myText;
+		console.log(await myObject[1].text());
 	}
 	
 	
