@@ -1750,7 +1750,7 @@
 		let myText = await myObject.text();
 		resultsDisplay.innerText = "<br><br>" + myText;
 		let testObj = JSON.parse(myText);
-		console.log("1) = " + testObj[1].text());
+		console.log("1) = " + JSON.stringify(testObj));
 	}
 	
 	
