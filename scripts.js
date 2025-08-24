@@ -212,7 +212,7 @@
 			subTitle.innerHTML = "Test";
 			subMenu.innerHTML="&nbsp";
 			contentTitleBar.className = "titleBar3Empty";
-			iFrameHldr.style.display === "none";
+			iFrameHldr.style.display = "none";
 			readJSONFile();
 			break;
 			
@@ -223,7 +223,7 @@
 			subTitle.innerHTML = "Welcome";
 			subMenu.innerHTML="&nbsp";
 			contentTitleBar.className = "titleBar3Empty";
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			break;
 
 		  //---------------------------
@@ -232,7 +232,7 @@
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Overview";
 			contentTitleBar.className = "titleBar3";
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			
 			if (subCat==='Overview'){
 				contentSource="Overview/CountyOverview.html";
@@ -278,7 +278,7 @@
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Maps";
 			contentTitleBar.className = "titleBar3";
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			
 			if (subCat==='1878 Jackson Co.'){
 				contentSource="Maps/1878_JacksonCo.html";
@@ -375,7 +375,7 @@
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Territorial Kansas";
 			contentTitleBar.className = "titleBar3Empty";
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			
 			if (subCat==='Frontier'){
 				contentSource="Pre-Org/Frontier.html";
@@ -391,7 +391,7 @@
 			// LOAD SUB TITLE
 			var subTitleHTML = `County District ` + title;
 			subTitle.innerHTML = subTitleHTML;
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -411,7 +411,7 @@
 		  case 'Pottawatomie Mission':
 		  //---------------------------		
 			subTitle.innerHTML = "Pottawatomie Mission";
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
 
@@ -432,7 +432,7 @@
 			// LOAD SUB TITLE
 			var subTitleHTML = "County High Schools - " + title;
 			subTitle.innerHTML = subTitleHTML;
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -455,7 +455,7 @@
 			// LOAD SUB TITLE
 			var subTitleHTML = title;
 			subTitle.innerHTML = subTitleHTML;
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -477,7 +477,7 @@
 			// LOAD SUB TITLE
 			var subTitleHTML = title;	
 			subTitle.innerHTML = subTitleHTML;
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -498,7 +498,7 @@
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "References";	
 			contentTitleBar.className = "titleBar3Empty";
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			contentSource="References/References.html";
 
 			break;
@@ -509,7 +509,7 @@
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Source Materials";	
 			contentTitleBar.className = "titleBar3Empty";
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			contentSource="SourceMatls/xxxxx.html";
 
 			break;
@@ -520,7 +520,7 @@
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Contact";	
 			contentTitleBar.className = "titleBar3Empty";
-			iFrameHldr.style.display === "block";
+			iFrameHldr.style.display = "block";
 			contentSource="Contact/Contact.html";
 			break;
 
