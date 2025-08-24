@@ -51,6 +51,7 @@
 		let thisPath = "";
 		thisPath = testObj[0]['photoFilePath'].toString();
 		thisPath = thisPath.replace(/\\\\/g,'\\');
+
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
 		myHTML=myHTML + "<img src='" + thisPath;
