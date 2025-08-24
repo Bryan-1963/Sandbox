@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>Jackson County, Kansas: Schools History</TITLE>
+	<link rel="stylesheet" href="Styles.css">
+	
+</HEAD>
+
+<BODY onload="startup();">
+<!-- ---------------------------------------------------------------------------------------------- -->
+<!-- TITLE BAR -->
+<!-- ---------------------------------------------------------------------------------------------- -->
+<div id="TitleBar" class="titleBar">
+Jackson County, Kansas Schools History
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+<!-- MAIN MENU -->
+<!-- ---------------------------------------------------------------------------------------------- -->
+<div id="MainMenu" class="navbar" >
+	<!-- Home -->
+	<!-- -------------------- -->
+	<a onclick="menuClick({category:'Home',subCat:''})">Home</a>
+
+	<!-- Overview -->
+	<!-- -------------------- -->
+	<div class="dropdown">
+		<button class="dropbtn">Overview 
+		  <i class="fa fa-caret-down"></i>
+		</button>
+		  <div class="dropdown-content">
+			<a onclick="menuClick({category:'Overview',subCat:'Overview'})">Overview</a>
+			<a onclick="menuClick({category:'Overview',subCat:'CoDistrictSumm'})">Co. Districts Summary</a>
+			<a onclick="menuClick({category:'Overview',subCat:'CoHSSumm'})">Co. High Schools Summary</a>
+			<a onclick="menuClick({category:'Overview',subCat:'TeachersInst'})">Teachers Institute</a>
+		  </div>
+	</div>
+	
+	<!-- Maps -->
+	<!-- -------------------- -->
+	<div class="dropdown">
+		<button class="dropbtn">Maps 
+		  <i class="fa fa-caret-down"></i>
+		</button>
+		  <div id="MapsDropdown" class="dropdown-content">
+			<!-- CONTENT HERE IS LOADED BY CODE USING CONTENTS OF VARIABLE maps -->
+		  </div>
+	</div>
+	
+	
+	<!-- Territorial -->
+	<!-- -------------------- -->
+	<a onclick="menuClick({category:'Pre-Org',subCat:'Territorial'})">Territorial KS</a>
+	
+	<!-- County Districts -->
+	<!-- -------------------- -->
+	<div class="dropdown">
+		<button class="dropbtn">Co. Districts 
+		  <i class="fa fa-caret-down"></i>
+		</button>
+		  <div id="CountyDistrictsDropdown" class="dropdown-content" style="column-count: 4;">
+			<a><u>Jackson Co. DISTRICTS</u></A>		
+			<!-- CONTENT HERE IS LOADED BY CODE USING CONTENTS OF VARIABLE countySchoolDistricts -->
+
+		  </div>
+	</div>
+		
+	<!-- Pottawatomie Mission -->
+	<!-- -------------------- -->
+	<a onclick="menuClick({category:'Pottawatomie Mission',subCat:''})">Pottawatomie Mission</a>
+	
+	<!-- High Schools -->
+	<!-- -------------------- -->
+	<div class="dropdown">
+		<button class="dropbtn">Co. High Schools 
+		  <i class="fa fa-caret-down"></i>
+		</button>	
+		  <div id="CountyHighSchoolsDropdown" class="dropdown-content">
+			<a><u>Jackson Co. Districts</u></A>
+			<!-- CONTENT HERE IS LOADED BY CODE USING CONTENTS OF VARIABLE countyHighSchools -->
+
+		  </div>
+	</div>
+	
+	<!-- Unified School Districts -->
+	<!-- -------------------- -->
+	<div class="dropdown">
+		<button class="dropbtn">USDs
+		  <i class="fa fa-caret-down"></i>
+		</button>	
+		  <div class="dropdown-content">
+			<a onclick="menuClick({category:'USD',subCat:'USD321', title:'USD 321 Kaw Valley'})">USD 321 Kaw Valley</a>
+			<a onclick="menuClick({category:'USD',subCat:'USD335', title:'USD 335 Jackson Heights'})">USD 335 Jackson Heights</a>
+			<a onclick="menuClick({category:'USD',subCat:'USD336', title:'USD 336 Holton'})">USD 336 Holton</a>
+			<a onclick="menuClick({category:'USD',subCat:'USD337', title:'USD 337 Royal Valley'})">USD 337 Royal Valley</a>
+		  </div>
+	</div>
+	
+	<!-- Colleges -->
+	<!-- -------------------- -->
+	<div class="dropdown">
+		<button class="dropbtn">Colleges 
+		  <i class="fa fa-caret-down"></i>
+		</button>
+		  <div class="dropdown-content">
+			<a onclick="menuClick({category:'Colleges',subCat:'CampbellCollege', title:'Campbell College'})">Campbell College</a>
+			<a onclick="menuClick({category:'Colleges',subCat:'CirclevilleSeminary', title:'Circleville Seminary'})">Circleville Seminary</a>
+		  </div>
+	</div>
+	
+	<!-- References -->
+	<!-- -------------------- -->
+	<a onclick="menuClick({category:'References',subCat:''})">References</a>
+	
+	<!-- Research Materials -->
+	<!-- -------------------- -->
+	<div class="dropdown">
+		<button class="dropbtn">Source Matl		
+		  <i class="fa fa-caret-down"></i>
+		</button>
+		  <div class="dropdown-content">
+		  	<a onclick="menuClick({category:'SourceMatl',subCat:'SchoolDirectories', title:'School Directories'})">School Directories</a>
+			<a onclick="menuClick({category:'SourceMatl',subCat:'DeedsLists', title:'Register of Deeds Lists'})">Register of Deeds Lists</a>
+			<a onclick="menuClick({category:'SourceMatl',subCat:'TreasurerAndTaxRpts', title:'Co. Treasurer & Tax Reports'})">Co. Treasurer & Tax Reports</a>
+			<a onclick="menuClick({category:'SourceMatl',subCat:'GradRpts'}, title:'Common School Graduate Reports')">Common School Graduate Reports</a>
+			<a onclick="menuClick({category:'SourceMatl',subCat:'TeachersRpts', title:'Teachers Reports'})">Teachers Reports</a>
+			<a onclick="menuClick({category:'SourceMatl',subCat:'OtherRpts', title:'Other Reports'})">Other Reports</a>
+		  </div>
+	</div>
+	
+	<!-- Contact -->
+	<!-- -------------------- -->
+	<a onclick="menuClick({category:'Contact',subCat:''})">Contact</a>
+		
+	<!-- TEST ONLY -->
+	<!-- -------------------- -->
+	<a onclick="menuClick({category:'Test',subCat:''})">TEST ONLY</a>
+	
+</div> <!-- END OF NAVIGATION BAR -->
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+<!-- SUBTITLE -->
+<!-- ---------------------------------------------------------------------------------------------- -->
+<DIV id="SubTitle" class="titleBar2" >
+	<!-- changed programmatically -->
+	Welcome
+</DIV>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+<!-- SUBMENU -->
+<!-- ---------------------------------------------------------------------------------------------- -->
+<DIV id="SubMenu" class="navBar2" >
+	<!-- changed programmatically -->
+	&nbsp
+</DIV>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+<!-- CONTENT TITLE BAR -->
+<!-- ---------------------------------------------------------------------------------------------- -->
+<DIV id="ContentTitle" class="titleBar3Empty" >
+	<!-- changed programmatically -->
+	&nbsp
+</DIV>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+<!-- SPACER (behind titles and menus to force the content down -->
+<!-- ---------------------------------------------------------------------------------------------- -->
+<DIV id="Spacer" class="divSpacer"></DIV>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+<!-- CONTENT -->
+<!-- ---------------------------------------------------------------------------------------------- -->
+<div id="iFrameHolder" class="iFrameHolder">
+	<iframe id="ContentHolder" src="Welcome/Welcome.html" title="description" class="contentHolder" ></iframe>
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+<!-- SCRIPTS -->
+<!-- ---------------------------------------------------------------------------------------------- -->
+<SCRIPT src="scripts.js"></SCRIPT>
+
+</BODY>
+</HTML>
