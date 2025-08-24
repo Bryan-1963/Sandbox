@@ -51,7 +51,7 @@
 		let thisPath = "";
 		thisPath = testObj[0]['photoFilePath'].toString();
 		thisPath = thisPath.replace(/\\\\/g,'\\');
-
+		thisPath = "https://bryan-1963.github.io/Sandbox" + thisPath;
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
 		myHTML=myHTML + "<img src='" + thisPath;
