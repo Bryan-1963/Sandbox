@@ -50,7 +50,7 @@
 		console.log("testObj[0] = " + JSON.stringify(testObj[0]));
 		let thisPath = "";
 		thisPath = testObj[0]['photoFilePath'].text();
-		thisPath = thisPath.replace(/\\/g,"\")
+		//thisPath = thisPath.replace(/\\/g,"\")
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
 		myHTML=myHTML + "<img src='" + thisPath;
