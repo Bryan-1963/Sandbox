@@ -1754,6 +1754,7 @@
 		let testObj = JSON.parse(myText);
 		console.log("testObj = " + JSON.stringify(testObj));
 		console.log("testObj[0] = " + JSON.stringify(testObj[0]));
+		/*
 		var myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
 		myHTML=myHTML + "<img src='" + testObj[0]['photoFilePath'];
@@ -1763,7 +1764,7 @@
 		myHTML=myHTML + "</figure>";
 		console.log("myHTML=" + myHTML);
 		tstContnt.innerHTML=myHTML;
-		
+		*/
 	}
 	
 	
