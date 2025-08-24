@@ -168,7 +168,7 @@
 		if (params.title) {
 			title = params.title;
 		}
-		console.log("menuClick: category=" + category + ", subCat=" + subCat);
+		console.log("menuClick: category=" + category + ", subCat=" + subCat + ", HAHAHA");
 		var contentSource = '';
 		var subTitle = document.getElementById("SubTitle");
 		var subMenu = document.getElementById("SubMenu");
@@ -182,12 +182,7 @@
 		  //---------------------------
 		  case 'Test':
 		  //---------------------------		  
-			contentSource="Test/Test.html"
-			subTitle.innerHTML = "Test";
-			subMenu.innerHTML="&nbsp";
-			contentTitleBar.className = "titleBar3Empty";
-			call ReadJSONFile();
-			break;
+
 			
 		  //---------------------------
 		  case 'Home':
