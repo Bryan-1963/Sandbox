@@ -40,7 +40,7 @@
 	async function readJSONFile(){
 		console.log("Made it to ReadJSONFile, da doo doo doo");
 
-		var tstContnt = document.getElementById("testContent");
+		let tstContnt = document.getElementById("testContent");
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox/Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 		let myText = await myObject.text();
 		
@@ -48,10 +48,12 @@
 		let testObj = JSON.parse(myText);
 		console.log("testObj = " + JSON.stringify(testObj));
 		console.log("testObj[0] = " + JSON.stringify(testObj[0]));
-		
-		var myHTML = "";
+		let thisPath = "";
+		thisPath = testObj[0]['photoFilePath'].text();
+		thisPath = thisPath.replace(/\\/g,"\")
+		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
-		myHTML=myHTML + "<img src='" + testObj[0]['photoFilePath'].replace("\\","\");
+		myHTML=myHTML + "<img src='" + thisPath;
 		myHTML=myHTML + "' style='max-height: 400px;'>";
 		myHTML=myHTML + "<figcaption>" + testObj[0]['annotation'];
 		myHTML=myHTML + "</figcaption>";
