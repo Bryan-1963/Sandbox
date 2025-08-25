@@ -50,15 +50,16 @@
 		console.log("testObj[0] = " + JSON.stringify(testObj[0]));
 		let thisPath = "";
 		thisPath = testObj[0]['photoFilePath'].toString();
-		thisPath = thisPath.replace(/\\\\/g,'\\');
+		//thisPath = thisPath.replace(/\\\\/g,'\\');
 		thisPath = "https://bryan-1963.github.io/Sandbox" + thisPath;
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
 		myHTML=myHTML + "<img src='" + thisPath;
-		myHTML=myHTML + "' style='max-height: 400px;'>";
-		myHTML=myHTML + "<figcaption>" + testObj[0]['annotation'];
-		myHTML=myHTML + "</figcaption>";
+		myHTML=myHTML + "' style='max-height: 600px;'>";
+		//myHTML=myHTML + "<figcaption>" + testObj[0]['annotation'];
+		//myHTML=myHTML + "</figcaption>";
 		myHTML=myHTML + "</figure>";
+		myHTML=myHTML + "<p class='figureDescription'>" + testObj[0]['annotation'] + "</p><br>";
 		
 		console.log("myHTML=" + myHTML);
 		photoContnt.innerHTML=myHTML;
