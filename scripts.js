@@ -40,7 +40,7 @@
 	async function readJSONFile(){
 		console.log("Made it to ReadJSONFile, da doo doo doo");
 
-		let tstContnt = document.getElementById("testContent");
+		let photoContnt = document.getElementById("photoContent");
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox/Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 		let myText = await myObject.text();
 		
@@ -61,7 +61,7 @@
 		myHTML=myHTML + "</figure>";
 		
 		console.log("myHTML=" + myHTML);
-		tstContnt.innerHTML=myHTML;
+		photoContnt.innerHTML=myHTML;
 		
 	}
 	
@@ -200,6 +200,7 @@
 		var subMenuHTML = ``;
 		var contentTitleBar = document.getElementById("ContentTitle");
 		let iFrameHldr = document.getElementById("iFrameHolder");
+		let photoContnt = document.getElementById("photoContent");
 		
 		
 		// SWITCH ON CATEGORY
@@ -213,6 +214,8 @@
 			subMenu.innerHTML="&nbsp";
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "none";
+			photoContnt.style.display = "block";
+			photoContnt.innerHTML = "";
 			readJSONFile();
 			break;
 			
@@ -222,8 +225,10 @@
 			contentSource="Welcome/Welcome.html"
 			subTitle.innerHTML = "Welcome";
 			subMenu.innerHTML="&nbsp";
-			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
+			contentTitleBar.className = "titleBar3Empty";
 			break;
 
 		  //---------------------------
@@ -231,6 +236,8 @@
 		  //---------------------------		  
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Overview";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 			contentTitleBar.className = "titleBar3";
 			iFrameHldr.style.display = "block";
 			
@@ -279,6 +286,8 @@
 			subTitle.innerHTML = "Maps";
 			contentTitleBar.className = "titleBar3";
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 			
 			if (subCat==='1878 Jackson Co.'){
 				contentSource="Maps/1878_JacksonCo.html";
@@ -376,6 +385,8 @@
 			subTitle.innerHTML = "Territorial Kansas";
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 			
 			if (subCat==='Frontier'){
 				contentSource="Pre-Org/Frontier.html";
@@ -392,6 +403,8 @@
 			var subTitleHTML = `County District ` + title;
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -412,6 +425,9 @@
 		  //---------------------------		
 			subTitle.innerHTML = "Pottawatomie Mission";
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
+			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
 
@@ -433,6 +449,8 @@
 			var subTitleHTML = "County High Schools - " + title;
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -456,6 +474,8 @@
 			var subTitleHTML = title;
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -478,6 +498,8 @@
 			var subTitleHTML = title;	
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -499,6 +521,8 @@
 			subTitle.innerHTML = "References";	
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 			contentSource="References/References.html";
 
 			break;
@@ -510,6 +534,8 @@
 			subTitle.innerHTML = "Source Materials";	
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 			contentSource="SourceMatls/xxxxx.html";
 
 			break;
@@ -522,6 +548,8 @@
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
 			contentSource="Contact/Contact.html";
+			photoContnt.style.display = "none";
+			photoContnt.innerHTML = "";
 			break;
 
 		} 
