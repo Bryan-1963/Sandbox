@@ -167,17 +167,33 @@ Jackson County, Kansas Schools History
 <DIV id="Spacer" class="divSpacer"></DIV>
 
 <!-- ---------------------------------------------------------------------------------------------- -->
-<!-- CONTENT -->
+<!-- PAGE CONTENT -->
 <!-- ---------------------------------------------------------------------------------------------- -->
 <div id="iFrameHolder" class="iFrameHolder">
 	<iframe id="ContentHolder" src="Welcome/Welcome.html" title="description" class="contentHolder" ></iframe>
 </div>
 
-
 <!-- ---------------------------------------------------------------------------------------------- -->
-<!-- TEST CONTENT -->
+<!-- DOCUMENT CONTENT  -->
 <!-- ---------------------------------------------------------------------------------------------- -->
-<div id="photoContent" class='iFrameHolder'></div>
+<div id="documentContentHolder" class='iFrameHolder'>
+	<!-- photo navbar -->
+	<div class='navbar2'>
+		<!-- Navigate through images -->
+		<button style='font-size:20px' onclick="navDocPage('first')"><i class='fa fa-fast-backward'></i></button>
+		<button style='font-size:20px' onclick="navDocPage('prev')"><i class='fa fa-step-backward'></i></button>
+		<form>
+			<input type="number" id="docPageNumInput" name="fname"> <!-- there's a listener on this -->
+		</form>
+		<button style='font-size:20px' onclick="navDocPage('next')"><i class='fa fa-step-forward'></i></button>
+		<button style='font-size:20px' onclick="navDocPage('last')"><i class='fa fa-fast-forward'></i></button>
+		<!-- Navigate through images -->
+		<button style='font-size:20px'><i class='fa fa-search'></i></button>
+	</div>
+	<div id="docPage">
+		<!-- content filled by javascript in loadDocPgNum() -->
+	</div>
+</div>
 
 <!-- ---------------------------------------------------------------------------------------------- -->
 <!-- SCRIPTS -->

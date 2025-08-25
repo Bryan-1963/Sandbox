@@ -11,6 +11,8 @@
 	var maps = []; //array of PageObjects for maps
 	var countySchoolDistricts = []; //array of PageObjects for elementary schools
 	var countyHighSchools = []; //array of PageObjects for high schools
+	var docPages = []; //array of AnnotatedPhotoObject, loaded by loadDocPages
+	var docPgNum = 0;
 	
 	//==========================================================================================
 	// EVENT LISTENERS
@@ -22,7 +24,9 @@
 	document.getElementById("SubTitle").addEventListener("load", sizeBars());
 	document.getElementById("ContentTitle").addEventListener("load", sizeBars());
 	
+	//---------------------------
 	// ELEMENT RESIZE OBSERVER
+	//---------------------------
 	var ro = new ResizeObserver( entries => {
 	  for (let entry of entries) {
 		if (entry.contentBoxSize) {
@@ -31,46 +35,87 @@
 		}
 	  }
 	});
-	
 	ro.observe(document.getElementById("MainMenu"));
 	ro.observe(document.getElementById("SubMenu"));
 	ro.observe(document.getElementById("SubTitle"));
 	ro.observe(document.getElementById("ContentTitle"));
 	
-	//==========================================================================================
-	// readJSONFile
-	//==========================================================================================
-	async function loadPhotoHTML(){
-		//console.log("Made it to ReadJSONFile, da doo doo doo");
+	//-----------------------------------------
+	// Document pagenumber input listener 
+	//-----------------------------------------
+	var wage = document.getElementById("docPageNumInput");
+	wage.addEventListener("keydown", function (e) {
+		if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+			docPgNum = Math.floor(e.target.value)-1; //eliminate any decimal and change user 1-based input to 0-based input
+			if (docPgNum>docPages.length-1) {docPgNum=docPages.length-1}
+			if (docPgNum<0){docPgNum=0};
+			loadDocPageNum(docPgNum);
+		}
+	});
 
-		let photoContnt = document.getElementById("photoContent");
-		let myObject = await fetch("https://bryan-1963.github.io/Sandbox/Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
+	
+	//==========================================================================================
+	// loadDocPages
+	//==========================================================================================
+	async function loadDocPages(filePath: string){
+		docPages.length = 0;	
+		let myObject = await fetch("https://bryan-1963.github.io/Sandbox/"+filePath);
 		let myText = await myObject.text();
-		let testObj = JSON.parse(myText);
+		docPages = JSON.parse(myText);
+		loadDocPageNum(0);
+	}
+	
+	//==========================================================================================
+	// loadDocPageNum
+	//==========================================================================================	
+	function loadDocPageNum(pgNum:number){
 		
-		//console.log("myText = |" + myText + "|");
-		//console.log("testObj = " + JSON.stringify(testObj));
-		//console.log("testObj[0] = " + JSON.stringify(testObj[0]));
-		
-		// BUILD HTML
+		// build HTML for this page
 		let myHTML = "";
-		myHTML = myHTML + "<div class='navbar'>";
-		myHTML = myHTML + "<button style='font-size:24px'><i class='fa fa-angle-double-left'></i></button>"
-		myHTML = myHTML + "<button style='font-size:24px'><i class='fa fa-angle-left'></i></button>"
-		myHTML = myHTML + "<button style='font-size:24px'><i class='fa fa-angle-right'></i></button>"
-		myHTML = myHTML + "<button style='font-size:24px'><i class='fa fa-angle-double-right'></i></button>"
-		myHTML = myHTML + "</div>";
 		myHTML=myHTML + "<figure class='myFigure'>";
 		myHTML=myHTML + "<img src='https://bryan-1963.github.io/Sandbox" + testObj[0]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
-		myHTML=myHTML + "<figcaption>" + testObj[0]['caption'];
+		myHTML=myHTML + "<figcaption>" + testObj[pgNum]['caption'];
 		myHTML=myHTML + "</figcaption>";
 		myHTML=myHTML + "</figure>";
 		myHTML=myHTML + "<p class='figureDescription'>" + testObj[0]['description'] + "</p><br>";
 		
-		//console.log("myHTML=" + myHTML);
-		photoContnt.innerHTML=myHTML;
+		//update the page HTML
+		document.getElementById("docPage").innerHTML=myHTML;
+		
+		//update the page number input box
+		document.getElementById("docPageNumInput").value=pgNum+1; //NOTE: pgNum is zero based, people like 1 based
 		
 	}
+	
+	//==========================================================================================
+	// navDocPage
+	//==========================================================================================	
+	function navDocPage(movement:string){
+		if (movement === 'first'){
+			docPgNum=0;
+		}
+		else if (movement === 'last'){
+			docPgNum=docPages.length-1;
+		}
+		else if (movement==="prev"){
+			if (docPgNum===0){ //circle back to end
+				docPgNum=docPages.length-1; 
+			}
+			else {
+				docPgNum=docPgNum-1;
+			}
+		}
+		else if (movement==="next"){
+			if (docPgNum===docPages.length-1){ //circle back to start
+				docPgNum=0; 
+			}
+			else {
+				docPgNum=docPgNum+1;
+			}		
+		}
+		loadDocPageNum(docPgNum);
+	}
+	
 	
 	//==========================================================================================
 	// startup
@@ -207,7 +252,7 @@
 		var subMenuHTML = ``;
 		var contentTitleBar = document.getElementById("ContentTitle");
 		let iFrameHldr = document.getElementById("iFrameHolder");
-		let photoContnt = document.getElementById("photoContent");
+		let photoContnt = document.getElementById("documentContentHolder");
 		
 		
 		// SWITCH ON CATEGORY
@@ -223,7 +268,7 @@
 			iFrameHldr.style.display = "none";
 			photoContnt.style.display = "block";
 			photoContnt.innerHTML = "";
-			loadPhotoHTML();
+			loadDocPages("Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 			break;
 			
 		  //---------------------------
@@ -1838,6 +1883,7 @@
 	class AnnotatedPhotoObject{
 		sortNum;
 		photoFilePath;
+		caption;
 		annotation;
 	}
 	
