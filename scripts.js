@@ -77,8 +77,9 @@
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
 		myHTML=myHTML + "<img src='" + webRootLocation + docPages[pgNum]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
-		myHTML=myHTML + "<figcaption>" + docPages[pgNum]['caption'];
-		myHTML=myHTML + "</figcaption>";
+		if (docPages[pgNum]['caption'].length>0) {
+			myHTML=myHTML + "<figcaption>" + docPages[pgNum]['caption'] + "</figcaption>";
+		}
 		myHTML=myHTML + "</figure>";
 		myHTML=myHTML + "<p class='figureDescription'>" + docPages[pgNum]['description'] + "</p><br>";
 		
