@@ -57,7 +57,7 @@
 	//==========================================================================================
 	// loadDocPages
 	//==========================================================================================
-	async function loadDocPages(filePath:string){
+	async function loadDocPages(filePath){
 		docPages.length = 0;	
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox/"+filePath);
 		let myText = await myObject.text();
@@ -68,7 +68,7 @@
 	//==========================================================================================
 	// loadDocPageNum
 	//==========================================================================================	
-	function loadDocPageNum(pgNum:number){
+	function loadDocPageNum(pgNum){
 		
 		// build HTML for this page
 		let myHTML = "";
@@ -90,7 +90,7 @@
 	//==========================================================================================
 	// navDocPage
 	//==========================================================================================	
-	function navDocPage(movement:string){
+	function navDocPage(movement){
 		if (movement === 'first'){
 			docPgNum=0;
 		}
