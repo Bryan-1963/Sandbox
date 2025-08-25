@@ -57,7 +57,7 @@
 	//==========================================================================================
 	// loadDocPages
 	//==========================================================================================
-	async function loadDocPages(filePath: string){
+	async function loadDocPages(filePath:string){
 		docPages.length = 0;	
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox/"+filePath);
 		let myText = await myObject.text();
@@ -252,7 +252,8 @@
 		var subMenuHTML = ``;
 		var contentTitleBar = document.getElementById("ContentTitle");
 		let iFrameHldr = document.getElementById("iFrameHolder");
-		let photoContnt = document.getElementById("documentContentHolder");
+		let documentContentHolder = document.getElementById("documentContentHolder");
+		let docPage = document.getElementById("docPage");
 		
 		
 		// SWITCH ON CATEGORY
@@ -267,7 +268,7 @@
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "none";
 			photoContnt.style.display = "block";
-			photoContnt.innerHTML = "";
+			docPage.innerHTML = "";
 			loadDocPages("Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 			break;
 			
@@ -278,8 +279,8 @@
 			subTitle.innerHTML = "Welcome";
 			subMenu.innerHTML="&nbsp";
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			contentTitleBar.className = "titleBar3Empty";
 			break;
 
@@ -288,8 +289,8 @@
 		  //---------------------------		  
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Overview";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			contentTitleBar.className = "titleBar3";
 			iFrameHldr.style.display = "block";
 			
@@ -338,8 +339,8 @@
 			subTitle.innerHTML = "Maps";
 			contentTitleBar.className = "titleBar3";
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			
 			if (subCat==='1878 Jackson Co.'){
 				contentSource="Maps/1878_JacksonCo.html";
@@ -437,8 +438,8 @@
 			subTitle.innerHTML = "Territorial Kansas";
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			
 			if (subCat==='Frontier'){
 				contentSource="Pre-Org/Frontier.html";
@@ -455,8 +456,8 @@
 			var subTitleHTML = `County District ` + title;
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -477,8 +478,8 @@
 		  //---------------------------		
 			subTitle.innerHTML = "Pottawatomie Mission";
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -501,8 +502,8 @@
 			var subTitleHTML = "County High Schools - " + title;
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -526,8 +527,8 @@
 			var subTitleHTML = title;
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -550,8 +551,8 @@
 			var subTitleHTML = title;	
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 
 			// LOAD SUBMENU html
 			subMenuHTML = ``;
@@ -573,8 +574,8 @@
 			subTitle.innerHTML = "References";	
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			contentSource="References/References.html";
 
 			break;
@@ -586,8 +587,8 @@
 			subTitle.innerHTML = "Source Materials";	
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			contentSource="SourceMatls/xxxxx.html";
 
 			break;
@@ -600,8 +601,8 @@
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
 			contentSource="Contact/Contact.html";
-			photoContnt.style.display = "none";
-			photoContnt.innerHTML = "";
+			documentContentHolder.display = "none";
+			docPage.innerHTML = "";
 			break;
 
 		} 
