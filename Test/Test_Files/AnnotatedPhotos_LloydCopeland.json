@@ -1,73 +1,73 @@
 [
 	{
 		"sortNum":0,
-		"photoFilePath":"/Test/Test_Files/171_011.JPEG",
+		"photoFilePath":"Test/Test_Files/171_011.JPEG",
 		"caption":"caption",
 		"description":"Some stuff"
 	},
 	{
 		"sortNum":1,
-		"photoFilePath":"/Test/Test_Files/171_012.JPEG",
+		"photoFilePath":"Test/Test_Files/171_012.JPEG",
 		"caption":"caption",
 		"description":"More stuff"
 	},
 	{
 		"sortNum":2,
-		"photoFilePath":"/Test/Test_Files/171_013.JPEG",
+		"photoFilePath":"Test/Test_Files/171_013.JPEG",
 		"caption":"caption",
 		"description":"adve e"
 	},
 	{
 		"sortNum":3,
-		"photoFilePath":"/Test/Test_Files/171_014.JPEG",
+		"photoFilePath":"Test/Test_Files/171_014.JPEG",
 		"caption":"caption",
 		"description":"ad vewff "
 	},
 	{
 		"sortNum":4,
-		"photoFilePath":"/Test/Test_Files/171_015.JPEG",
+		"photoFilePath":"Test/Test_Files/171_015.JPEG",
 		"caption":"caption",
 		"description":"nh tthr"
 	},
 	{
 		"sortNum":5,
-		"photoFilePath":"/Test/Test_Files/171_016.JPEG",
+		"photoFilePath":"Test/Test_Files/171_016.JPEG",
 		"caption":"caption",
 		"description":"x vfrde"
 	},
 	{
 		"sortNum":6,
-		"photoFilePath":"/Test/Test_Files/IMG_2637.JPEG",
+		"photoFilePath":"Test/Test_Files/IMG_2637.JPEG",
 		"caption":"caption",
 		"description":"zrr g"
 	},
 	{
 		"sortNum":7,
-		"photoFilePath":"/Test/Test_Files/IMG_2638.JPEG",
+		"photoFilePath":"Test/Test_Files/IMG_2638.JPEG",
 		"caption":"caption",
 		"description":"nvvenrvo"
 	},
 	{
 		"sortNum":8,
-		"photoFilePath":"/Test/Test_Files/IMG_2639.JPEG",
+		"photoFilePath":"Test/Test_Files/IMG_2639.JPEG",
 		"caption":"caption",
 		"description":"aaaaaaaa"
 	},
 	{
 		"sortNum":9,
-		"photoFilePath":"/Test/Test_Files/IMG_2640.JPEG",
+		"photoFilePath":"Test/Test_Files/IMG_2640.JPEG",
 		"caption":"caption",
 		"description":"ddddddddd"
 	},
 	{
 		"sortNum":10,
-		"photoFilePath":"/Test/Test_Files/IMG_2641.JPEG",
+		"photoFilePath":"Test/Test_Files/IMG_2641.JPEG",
 		"caption":"caption",
 		"description":"eeeeeeeee"
 	},
 	{
 		"sortNum":11,
-		"photoFilePath":"/Test/Test_Files/IMG_2642.JPEG",
+		"photoFilePath":"Test/Test_Files/IMG_2642.JPEG",
 		"caption":"caption",
 		"description":"rrrrrrrrrr"
 	}

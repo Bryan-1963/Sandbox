@@ -13,6 +13,7 @@
 	var countyHighSchools = []; //array of PageObjects for high schools
 	var docPages = []; //array of AnnotatedPhotoObject, loaded by loadDocPages
 	var docPgNum = 0;
+	var webRootLocation = "https://bryan-1963.github.io/Sandbox/";
 	
 	//==========================================================================================
 	// EVENT LISTENERS
@@ -60,9 +61,10 @@
 	async function loadDocPages(filePath){
 		console.log("in loadDocPages, rcd filePath=|" + filePath + "|");
 		docPages.length = 0;	
-		let myObject = await fetch("https://bryan-1963.github.io/Sandbox/"+filePath);
+		let myObject = await fetch(webRootLocation+filePath);
 		let myText = await myObject.text();
 		docPages = JSON.parse(myText);
+		console.log("docPages.length=" + docPages.length);
 		loadDocPageNum(0);
 	}
 	
@@ -70,15 +72,15 @@
 	// loadDocPageNum
 	//==========================================================================================	
 	function loadDocPageNum(pgNum){
-		
+		console.log("in loadDocPageNum, rcd pgNum=" + pgNum);
 		// build HTML for this page
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
-		myHTML=myHTML + "<img src='https://bryan-1963.github.io/Sandbox" + docPages[0]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
+		myHTML=myHTML + "<img src=webRootLocation + docPages[pgNum]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
 		myHTML=myHTML + "<figcaption>" + docPages[pgNum]['caption'];
 		myHTML=myHTML + "</figcaption>";
 		myHTML=myHTML + "</figure>";
-		myHTML=myHTML + "<p class='figureDescription'>" + docPages[0]['description'] + "</p><br>";
+		myHTML=myHTML + "<p class='figureDescription'>" + docPages[pgNum]['description'] + "</p><br>";
 		
 		//update the page HTML
 		document.getElementById("docPage").innerHTML=myHTML;
@@ -92,6 +94,7 @@
 	// navDocPage
 	//==========================================================================================	
 	function navDocPage(movement){
+		console.log("in navDocPage, rcd movement=" + movement);
 		if (movement === 'first'){
 			docPgNum=0;
 		}
@@ -114,6 +117,7 @@
 				docPgNum=docPgNum+1;
 			}		
 		}
+		console.log("calling loadDocPage, sending docPgNum=" + docPgNum);
 		loadDocPageNum(docPgNum);
 	}
 	
