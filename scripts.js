@@ -87,7 +87,7 @@
 		//update the annotation page HTML
 		let thisAnnotation = docPages[pgNum]['description'] ;
 		console.log("this annotation=|" + thisAnnotation + "|");
-		thisAnnotation=thisAnnotation.replace(/\\r\\n/g,"<br>");
+		thisAnnotation=thisAnnotation.replace(/\r\n/g,"<br>");
 		console.log("now this annotation=|" + thisAnnotation + "|");
 		myHTML="<p class='figureDescription'>" + thisAnnotation + "</p><br>";
 		document.getElementById("docAnnotation").innerHTML=myHTML;
