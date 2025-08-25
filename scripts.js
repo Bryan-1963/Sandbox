@@ -267,7 +267,7 @@
 			subMenu.innerHTML="&nbsp";
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "none";
-			photoContnt.style.display = "block";
+			documentContentHolder.style.display = "block";
 			docPage.innerHTML = "";
 			loadDocPages("Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 			break;
