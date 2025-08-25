@@ -46,8 +46,8 @@
 	//-----------------------------------------
 	var docPageNumInput = document.getElementById("docPageNumInput");
 	docPageNumInput.addEventListener("keydown", function (e) {
-		console.log("e.code=" + e.code);
-		if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+		if (e.code === "Enter" || e.code === "NumpadEnter") //checks whether the pressed key is "Enter"
+		{  
 			docPgNum = Math.floor(e.target.value)-1; //eliminate any decimal and change user 1-based input to 0-based input
 			if (docPgNum>docPages.length-1) {docPgNum=docPages.length-1}
 			if (docPgNum<0){docPgNum=0};
@@ -74,7 +74,7 @@
 	//==========================================================================================	
 	function loadDocPageNum(pgNum){
 		console.log("in loadDocPageNum, rcd pgNum=" + pgNum);
-		// build HTML for this page
+		// build & update HTML for this page
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
 		myHTML=myHTML + "<img src='" + webRootLocation + docPages[pgNum]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
@@ -82,10 +82,13 @@
 			myHTML=myHTML + "<figcaption>" + docPages[pgNum]['caption'] + "</figcaption>";
 		}
 		myHTML=myHTML + "</figure>";
-		myHTML=myHTML + "<p class='figureDescription'>" + docPages[pgNum]['description'] + "</p><br>";
-		
-		//update the page HTML
 		document.getElementById("docPage").innerHTML=myHTML;
+		
+		//update the annotation page HTML
+		let thisAnnotation = docPages[pgNum]['description'] ;
+		thisAnnotation=thisAnnotation.replace(/\\r\\n/g,"<br>");
+		myHTML="<p class='figureDescription'>" + thisAnnotation + "</p><br>";
+		document.getElementById("docAnnotation").innerHTML=myHTML;
 		
 		//update the page number input box
 		document.getElementById("docPageNumInput").value=pgNum+1; //NOTE: pgNum is zero based, people like 1 based

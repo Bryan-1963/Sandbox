@@ -15,7 +15,7 @@
 		"sortNum":2,
 		"photoFilePath":"Test/Test_Files/171_013.JPEG",
 		"caption":"",
-		"description":"adve e"
+		"description":"Multiline stuff\r\nline 2\r\nline 3"
 	},
 	{
 		"sortNum":3,
