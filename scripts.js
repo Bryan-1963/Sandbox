@@ -36,32 +36,33 @@
 	ro.observe(document.getElementById("SubMenu"));
 	ro.observe(document.getElementById("SubTitle"));
 	ro.observe(document.getElementById("ContentTitle"));
-
-	async function readJSONFile(){
-		console.log("Made it to ReadJSONFile, da doo doo doo");
+	
+	//==========================================================================================
+	// readJSONFile
+	//==========================================================================================
+	async function loadPhotoHTML(){
+		//console.log("Made it to ReadJSONFile, da doo doo doo");
 
 		let photoContnt = document.getElementById("photoContent");
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox/Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 		let myText = await myObject.text();
-		
-		console.log("myText = |" + myText + "|");
 		let testObj = JSON.parse(myText);
-		console.log("testObj = " + JSON.stringify(testObj));
-		console.log("testObj[0] = " + JSON.stringify(testObj[0]));
-		let thisPath = "";
-		thisPath = testObj[0]['photoFilePath'].toString();
-		//thisPath = thisPath.replace(/\\\\/g,'\\');
-		thisPath = "https://bryan-1963.github.io/Sandbox" + thisPath;
-		let myHTML = "";
-		myHTML=myHTML + "<figure class='myFigure'>";
-		myHTML=myHTML + "<img src='" + thisPath;
-		myHTML=myHTML + "' style='max-height: 600px;'>";
-		//myHTML=myHTML + "<figcaption>" + testObj[0]['annotation'];
-		//myHTML=myHTML + "</figcaption>";
-		myHTML=myHTML + "</figure>";
-		myHTML=myHTML + "<p class='figureDescription'>" + testObj[0]['annotation'] + "</p><br>";
 		
-		console.log("myHTML=" + myHTML);
+		//console.log("myText = |" + myText + "|");
+		//console.log("testObj = " + JSON.stringify(testObj));
+		//console.log("testObj[0] = " + JSON.stringify(testObj[0]));
+		
+		// BUILD HTML
+		let myHTML = "";
+		myHTML = myHTML + "<button style="font-size:24px">Button <i class="fa fa-angle-left"></i></button>"
+		myHTML=myHTML + "<figure class='myFigure'>";
+		myHTML=myHTML + "<img src='https://bryan-1963.github.io/Sandbox" + testObj[0]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
+		myHTML=myHTML + "<figcaption>" + testObj[0]['caption'];
+		myHTML=myHTML + "</figcaption>";
+		myHTML=myHTML + "</figure>";
+		myHTML=myHTML + "<p class='figureDescription'>" + testObj[0]['description'] + "</p><br>";
+		
+		//console.log("myHTML=" + myHTML);
 		photoContnt.innerHTML=myHTML;
 		
 	}
@@ -217,7 +218,7 @@
 			iFrameHldr.style.display = "none";
 			photoContnt.style.display = "block";
 			photoContnt.innerHTML = "";
-			readJSONFile();
+			loadPhotoHTML();
 			break;
 			
 		  //---------------------------

@@ -2,62 +2,74 @@
 	{
 		"sortNum":0,
 		"photoFilePath":"/Test/Test_Files/171_011.JPEG",
-		"annotation":"Some stuff"
+		"caption":"caption",
+		"description":"Some stuff"
 	},
 	{
 		"sortNum":1,
 		"photoFilePath":"/Test/Test_Files/171_012.JPEG",
-		"annotation":"More stuff"
+		"caption":"caption",
+		"description":"More stuff"
 	},
 	{
 		"sortNum":2,
 		"photoFilePath":"/Test/Test_Files/171_013.JPEG",
-		"annotation":"adve e"
+		"caption":"caption",
+		"description":"adve e"
 	},
 	{
 		"sortNum":3,
 		"photoFilePath":"/Test/Test_Files/171_014.JPEG",
-		"annotation":"ad vewff "
+		"caption":"caption",
+		"description":"ad vewff "
 	},
 	{
 		"sortNum":4,
 		"photoFilePath":"/Test/Test_Files/171_015.JPEG",
-		"annotation":"nh tthr"
+		"caption":"caption",
+		"description":"nh tthr"
 	},
 	{
 		"sortNum":5,
 		"photoFilePath":"/Test/Test_Files/171_016.JPEG",
-		"annotation":"x vfrde"
+		"caption":"caption",
+		"description":"x vfrde"
 	},
 	{
 		"sortNum":6,
 		"photoFilePath":"/Test/Test_Files/IMG_2637.JPEG",
-		"annotation":"zrr g"
+		"caption":"caption",
+		"description":"zrr g"
 	},
 	{
 		"sortNum":7,
 		"photoFilePath":"/Test/Test_Files/IMG_2638.JPEG",
-		"annotation":"nvvenrvo"
+		"caption":"caption",
+		"description":"nvvenrvo"
 	},
 	{
 		"sortNum":8,
 		"photoFilePath":"/Test/Test_Files/IMG_2639.JPEG",
-		"annotation":"aaaaaaaa"
+		"caption":"caption",
+		"description":"aaaaaaaa"
 	},
 	{
 		"sortNum":9,
 		"photoFilePath":"/Test/Test_Files/IMG_2640.JPEG",
-		"annotation":"ddddddddd"
+		"caption":"caption",
+		"description":"ddddddddd"
 	},
 	{
 		"sortNum":10,
 		"photoFilePath":"/Test/Test_Files/IMG_2641.JPEG",
-		"annotation":"eeeeeeeee"
+		"caption":"caption",
+		"description":"eeeeeeeee"
 	},
 	{
 		"sortNum":11,
 		"photoFilePath":"/Test/Test_Files/IMG_2642.JPEG",
-		"annotation":"rrrrrrrrrr"
+		"caption":"caption",
+		"description":"rrrrrrrrrr"
 	}
 
 ]
