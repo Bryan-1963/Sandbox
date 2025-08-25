@@ -44,8 +44,9 @@
 	//-----------------------------------------
 	// Document pagenumber input listener 
 	//-----------------------------------------
-	var wage = document.getElementById("docPageNumInput");
-	wage.addEventListener("keydown", function (e) {
+	var docPageNumInput = document.getElementById("docPageNumInput");
+	docPageNumInput.addEventListener("keydown", function (e) {
+		console.log("e.code=" + e.code);
 		if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
 			docPgNum = Math.floor(e.target.value)-1; //eliminate any decimal and change user 1-based input to 0-based input
 			if (docPgNum>docPages.length-1) {docPgNum=docPages.length-1}
