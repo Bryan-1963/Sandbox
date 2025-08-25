@@ -182,6 +182,11 @@
 		.dropdown:hover .dropdown-content {
 		  display: block;
 		}
+		
+		.navButton {
+			padding-top: 2px;
+			padding-bottom: 2px;
+		}
 
 		/* --------------------------------------------- */
 		/* SPACER BLOCK */

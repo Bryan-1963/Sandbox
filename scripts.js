@@ -76,7 +76,7 @@
 		// build HTML for this page
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
-		myHTML=myHTML + "<img src=webRootLocation + docPages[pgNum]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
+		myHTML=myHTML + "<img src='" + webRootLocation + docPages[pgNum]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
 		myHTML=myHTML + "<figcaption>" + docPages[pgNum]['caption'];
 		myHTML=myHTML + "</figcaption>";
 		myHTML=myHTML + "</figure>";
