@@ -58,6 +58,7 @@
 	// loadDocPages
 	//==========================================================================================
 	async function loadDocPages(filePath){
+		console.log("in loadDocPages, rcd filePath=|" + filePath + "|");
 		docPages.length = 0;	
 		let myObject = await fetch("https://bryan-1963.github.io/Sandbox/"+filePath);
 		let myText = await myObject.text();
@@ -73,11 +74,11 @@
 		// build HTML for this page
 		let myHTML = "";
 		myHTML=myHTML + "<figure class='myFigure'>";
-		myHTML=myHTML + "<img src='https://bryan-1963.github.io/Sandbox" + testObj[0]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
-		myHTML=myHTML + "<figcaption>" + testObj[pgNum]['caption'];
+		myHTML=myHTML + "<img src='https://bryan-1963.github.io/Sandbox" + docPages[0]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
+		myHTML=myHTML + "<figcaption>" + docPages[pgNum]['caption'];
 		myHTML=myHTML + "</figcaption>";
 		myHTML=myHTML + "</figure>";
-		myHTML=myHTML + "<p class='figureDescription'>" + testObj[0]['description'] + "</p><br>";
+		myHTML=myHTML + "<p class='figureDescription'>" + docPages[0]['description'] + "</p><br>";
 		
 		//update the page HTML
 		document.getElementById("docPage").innerHTML=myHTML;
@@ -121,13 +122,13 @@
 	// startup
 	//==========================================================================================
 	function startup(){
-		console.log("in startup");
+		//console.log("in startup");
 		countySchoolDistricts.length =0;
 		countyHighSchools.length = 0;
 		initVars(); //load global variables
 		buildMenus(); //build dropdowns based on contents of countySchoolDistricts and countyHighSchools
 		sizeBars(); //size and place the menu bars
-		console.log("countySchoolDistricts.length=" + countySchoolDistricts.length);
+		//console.log("countySchoolDistricts.length=" + countySchoolDistricts.length);
 	}
 
 	//==========================================================================================
@@ -244,7 +245,7 @@
 		if (params.title) {
 			title = params.title;
 		}
-		console.log("menuClick: category=" + category + ", subCat=" + subCat + ", HAHAHA");
+		console.log("menuClick: category=" + category + ", subCat=" + subCat);
 		var contentSource = '';
 		var subTitle = document.getElementById("SubTitle");
 		var subMenu = document.getElementById("SubMenu");
@@ -267,6 +268,7 @@
 			subMenu.innerHTML="&nbsp";
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "none";
+			subMenu.style.display = "none";
 			documentContentHolder.style.display = "block";
 			docPage.innerHTML = "";
 			loadDocPages("Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
@@ -280,6 +282,7 @@
 			subMenu.innerHTML="&nbsp";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 			contentTitleBar.className = "titleBar3Empty";
 			break;
@@ -290,6 +293,7 @@
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Overview";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 			contentTitleBar.className = "titleBar3";
 			iFrameHldr.style.display = "block";
@@ -338,6 +342,7 @@
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Maps";
 			contentTitleBar.className = "titleBar3";
+			subMenu.style.display = "block";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			docPage.innerHTML = "";
@@ -439,6 +444,7 @@
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 			
 			if (subCat==='Frontier'){
@@ -457,6 +463,7 @@
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 			
 			// LOAD SUBMENU html
@@ -479,6 +486,7 @@
 			subTitle.innerHTML = "Pottawatomie Mission";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 			
 			// LOAD SUBMENU html
@@ -503,6 +511,7 @@
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 			
 			// LOAD SUBMENU html
@@ -528,6 +537,7 @@
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 			
 			// LOAD SUBMENU html
@@ -552,6 +562,7 @@
 			subTitle.innerHTML = subTitleHTML;
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 
 			// LOAD SUBMENU html
@@ -575,6 +586,7 @@
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 			contentSource="References/References.html";
 
@@ -588,6 +600,7 @@
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
+			subMenu.style.display = "block";
 			docPage.innerHTML = "";
 			contentSource="SourceMatls/xxxxx.html";
 
@@ -599,6 +612,7 @@
 			subMenu.innerHTML="&nbsp";
 			subTitle.innerHTML = "Contact";	
 			contentTitleBar.className = "titleBar3Empty";
+			subMenu.style.display = "block";
 			iFrameHldr.style.display = "block";
 			contentSource="Contact/Contact.html";
 			documentContentHolder.display = "none";
