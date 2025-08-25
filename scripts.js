@@ -54,7 +54,12 @@
 		
 		// BUILD HTML
 		let myHTML = "";
+		myHTML = myHTML + "<div class='navbar'>";
+		myHTML = myHTML + "<button style='font-size:24px'><i class='fa fa-angle-double-left'></i></button>"
 		myHTML = myHTML + "<button style='font-size:24px'><i class='fa fa-angle-left'></i></button>"
+		myHTML = myHTML + "<button style='font-size:24px'><i class='fa fa-angle-right'></i></button>"
+		myHTML = myHTML + "<button style='font-size:24px'><i class='fa fa-angle-double-right'></i></button>"
+		myHTML = myHTML + "</div>";
 		myHTML=myHTML + "<figure class='myFigure'>";
 		myHTML=myHTML + "<img src='https://bryan-1963.github.io/Sandbox" + testObj[0]['photoFilePath'].toString() + "' style='max-height: 600px;'>";
 		myHTML=myHTML + "<figcaption>" + testObj[0]['caption'];
