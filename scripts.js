@@ -68,18 +68,22 @@
 		subMenuCat = '';
 		
 		//set the subTitle
+		var subTitle = document.getElementById("SubTitle");
 		subTitle.innerHTML = docTitle;
 		
 		//set up submenu with document navigation controls
+		var subMenu = document.getElementById("SubMenu");
 		subMenu.style.display = "block";
 		docNavBar.style.display = "block";
 		schoolNavBar.style.display = "none"
 		
 		//hide the iFrame content
+		var contentTitleBar = document.getElementById("ContentTitle");
 		contentTitleBar.className = "titleBar3Empty";
 		iFrameHldr.style.display = "none";
 		
 		//show the document content
+		let documentContentHolder = document.getElementById("documentContentHolder");
 		documentContentHolder.style.display = "block";
 		docPage.innerHTML = "";
 		
