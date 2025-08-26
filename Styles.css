@@ -265,11 +265,32 @@
 			font-size: 14px;
 			font-family: Sans-serif;
 		}
+		
 		.docPage{
-			display: inline-block;
-			justify-content: left;
+			display: flex;
+			flex-direction: row;
 			align-items: top;
+			justify-content: left;
 		}
+		
+		/* Change flex direction for narrow screens */
+		@media (max-width: 800px) {
+		  .docPage {
+			flex-direction: column;
+		  }
+		}
+		
+		.docPageImage{
+			flex: 50%
+			min-height:600px;
+		}
+		
+		.docPageAnnotation{
+			flex: 50%
+			min-height:600px;
+			text-align: left;
+		}
+		
 		/* --------------------------------------------- */
 		/* TABLES */
 		/* --------------------------------------------- */	
