@@ -61,8 +61,28 @@
 	//==========================================================================================
 	// loadDocPages
 	//==========================================================================================
-	async function loadDocPages(filePath){
+	async function loadDocPages(filePath, docTitle){
 		console.log("in loadDocPages, rcd filePath=|" + filePath + "|");
+		
+		subMenuName = '';
+		subMenuCat = '';
+		
+		//set the subTitle
+		subTitle.innerHTML = docTitle;
+		
+		//set up submenu with document navigation controls
+		subMenu.style.display = "block";
+		docNavBar.style.display = "block";
+		schoolNavBar.style.display = "none"
+		
+		//hide the iFrame content
+		contentTitleBar.className = "titleBar3Empty";
+		iFrameHldr.style.display = "none";
+		
+		//show the document content
+		documentContentHolder.style.display = "block";
+		docPage.innerHTML = "";
+		
 		docPages.length = 0;	
 		let myObject = await fetch(webRootLocation+filePath);
 		let myText = await myObject.text();
@@ -642,7 +662,7 @@
 			docNavBar.style.display = "none";
 			schoolNavBar.style.display = "none"
 			docPage.innerHTML = "";
-			contentSource="SourceMatls/xxxxx.html";
+			contentSource="SourceMatls/SourceMatls.html";
 			break;
 
 		  //---------------------------	

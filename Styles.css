@@ -189,11 +189,11 @@
 		}
 		
 		.pageNumInput{
-			width: 10px;
+			width: 20px;
 		}
 		
 		.searchInput{
-			width: 50px;
+			width: 75px;
 		}
 		
 		/* --------------------------------------------- */
@@ -296,7 +296,7 @@
 		}
 		
 		.docPageAnnotation{
-			padding: 12px;
+			padding: 6px;
 		}
 		
 		/* --------------------------------------------- */
