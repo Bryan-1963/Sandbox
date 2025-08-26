@@ -92,8 +92,8 @@
 		thisAnnotation=thisAnnotation.replace(/[\r\n]/g,"<br>");
 		thisAnnotation=thisAnnotation.replace(/<br><br>/g,"<br>");
 		console.log("now this annotation=|" + thisAnnotation + "|");
-		myHTML="<p class='figureDescription'>" + thisAnnotation + "</p><br>";
-		document.getElementById("docAnnotation").innerHTML=myHTML;
+		myHTML="<p class='docPageAnnotation'>" + thisAnnotation + "</p><br>";
+		document.getElementById("docAnnotationHolder").innerHTML=myHTML;
 		
 		//update the page number input box
 		document.getElementById("docPageNumInput").value=pgNum+1; //NOTE: pgNum is zero based, people like 1 based
@@ -193,7 +193,7 @@
 			}
 			// Example:
 			//<a onclick="menuClick({category:'High Schools',subCat:'RHS5', title:'RHS 5 Mayetta'})">RHS 5 Mayetta</a>
-			dropDownContents = dropDownContents + String.fromCharCode(13) + "<a onclick=\"menuClick({category:'High Schools', subCat:'" + countyHighSchools[i].number 
+			dropDownContents = dropDownContents + String.fromCharCode(13) + "<a onclick=\"menuClick({category:'County High Schools', subCat:'" + countyHighSchools[i].number 
 			dropDownContents = dropDownContents + "', title:'" + countyHighSchools[i].title + "'})\">"+ countyHighSchools[i].title + "</a>";
 				
 		}
@@ -496,26 +496,31 @@
 			}
 			break;
 
-		  //---------------------------		  
-		  case 'County Districts':
-		  //---------------------------	
-			// LOAD SUB TITLE
-			var subTitleHTML = `County District ` + title;
-			subTitle.innerHTML = subTitleHTML;
-			iFrameHldr.style.display = "block";
-			documentContentHolder.display = "none";
-			subMenu.style.display = "block";
-			docNavBar.style.display = "none";
-			schoolNavBar.style.display = "block"
-			docPage.innerHTML = "";
-			
-			// LOAD SUBMENU click parameters
-			subMenuName = "CountyDistricts";
-			subMenuCat = subCat;
+			//---------------------------	
+			// SCHOOLS		  
+			case 'County Districts':
+			case 'County High Schools':
+			case 'Colleges':
+			case 'Unified School Districts':
+			//---------------------------	
+				// LOAD SUB TITLE
+				let catFolderName = category.replace(/\s/g,"");
+				var subTitleHTML = catFolderName + title;
+				subTitle.innerHTML = subTitleHTML;
+				iFrameHldr.style.display = "block";
+				documentContentHolder.display = "none";
+				subMenu.style.display = "block";
+				docNavBar.style.display = "none";
+				schoolNavBar.style.display = "block"
+				docPage.innerHTML = "";
 
-			contentSource="CountyDistricts/" + subCat + "/" + subCat + "_Overview.html";
-			contentTitleBar.className = "titleBar3";
-			contentTitleBar.innerHTML="Overview";
+				// LOAD SUBMENU click parameters
+				subMenuName = "CountyDistricts";
+				subMenuCat = subCat;
+
+				contentSource= category + "/" + subCat + "/" + subCat + "_Overview.html";
+				contentTitleBar.className = "titleBar3";
+				contentTitleBar.innerHTML="Overview";
 			break;
 			
 		  //---------------------------		
@@ -529,12 +534,10 @@
 			schoolNavBar.style.display = "block"
 			docPage.innerHTML = "";
 			
-						
 			// LOAD SUBMENU click parameters
 			subMenuName = "PottawatomieMission";
 			subMenuCat = "";
 	
-			
 			contentTitleBar.className = "titleBar3";
 			contentTitleBar.innerHTML="Overview";
 			contentSource="PottawatomieMission/PottawatomieMission_Overview.html";
@@ -579,7 +582,7 @@
 			docPage.innerHTML = "";
 									
 			// LOAD SUBMENU click parameters
-			subMenuName = "CountyHighSchools";
+			subMenuName = "UnifiedSchoolDistricts";
 			subMenuCat = subCat;
 
 			contentSource="UnifiedSchoolDistricts/" + subCat + "/" + subCat + "_Overview.html";
@@ -674,17 +677,16 @@
 	//==========================================================================================
 	function schoolSubMenuClick(category) {
 		console.log("schoolSubMenuClick: subMenuName=" + subMenuName + ", category=" + category + ", subCat=" + subMenuCat);
-		var source = '';
 		var contentTitleBar = document.getElementById("ContentTitle");
 		var contentHolder = document.getElementById("ContentHolder");
-	  
-		source = subMenuName + "/" + subMenuCat + "/" + subMenuCat + "_" + category + ".html";
+
+		// change the content title bar
 		contentTitleBar.innerHTML=category;
 
-		// CHANGE THE SOURCE FOR THE iFrame
-		contentHolder.src =source;
+		// change the source for the  iFrame
+		contentHolder.src =subMenuName + "/" + subMenuCat + "/" + subMenuCat + "_" + category + ".html";;
 		
-		// ADJUST LOCATIONS OF BARS
+		// adjust locations of bars
 		sizeBars()
 		
 	} // end of function subMenuClick 

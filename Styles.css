@@ -289,10 +289,14 @@
 			min-height:600px;
 		}
 		
-		.docPageAnnotation{
+		.docPageAnnotationHolder{
 			flex: 50%
 			min-height:600px;
 			text-align: left;
+		}
+		
+		.docPageAnnotation{
+			padding: 1em;
 		}
 		
 		/* --------------------------------------------- */
