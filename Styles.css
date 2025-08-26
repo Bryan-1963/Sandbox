@@ -187,9 +187,11 @@
 			padding-top: 4px;
 			padding-bottom: 4px;
 		}
+		
 		.pageNumInput{
 			width= 10px;
 		}
+		
 		/* --------------------------------------------- */
 		/* SPACER BLOCK */
 		/* --------------------------------------------- */		
@@ -265,6 +267,8 @@
 		}
 		.docPage{
 			display: inline-block;
+			justify-content: left;
+			align-items: top;
 		}
 		/* --------------------------------------------- */
 		/* TABLES */
