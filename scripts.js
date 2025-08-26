@@ -274,15 +274,33 @@
 			
 		  //---------------------------
 		  case 'Test':
-		  //---------------------------		  
-			contentSource="Test/Test.html"
+		  //---------------------------	
+		  
+			//set the subTitle
 			subTitle.innerHTML = "Test";
-			subMenu.innerHTML="&nbsp";
+			
+			//set up submenu with document navigation controls
+			subMenu.style.display = "block";
+			subMenuHTML = subMenuHTML + "<!-- Navigate through pages -->";
+			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('first')\"><i class='fa fa-fast-backward'></i></button>";
+			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('prev')\"><i class='fa fa-step-backward'></i></button>";
+			subMenuHTML = subMenuHTML + "<input type='number' id='docPageNumInput' name='docPageNumInput' class='pageNumInput'> <!-- there's a listener on this -->";
+			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('next')\"><i class='fa fa-step-forward'></i></button>";
+			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('last')\"><i class='fa fa-fast-forward'></i></button>";
+			subMenuHTML = subMenuHTML + "<!-- Search document content -->";
+			subMenuHTML = subMenuHTML + "<input type='text' id='docPageSearchInput' name='docPageSearchInput' class='searchInput'>"";
+			subMenuHTML = subMenuHTML + "<button style='font-size:10px'><i class='fa fa-search'></i></button>";
+			subMenu.innerHTML=subMenuHTML;
+			
+			//hide the iFrame content
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "none";
-			subMenu.style.display = "none";
+			
+			//show the document content
 			documentContentHolder.style.display = "block";
 			docPage.innerHTML = "";
+			
+			//load the document pages
 			loadDocPages("Test/Test_Files/AnnotatedPhotos_LloydCopeland.json");
 			break;
 			
