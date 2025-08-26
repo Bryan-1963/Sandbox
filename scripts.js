@@ -288,7 +288,7 @@
 			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('next')\"><i class='fa fa-step-forward'></i></button>";
 			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('last')\"><i class='fa fa-fast-forward'></i></button>";
 			subMenuHTML = subMenuHTML + "<!-- Search document content -->";
-			subMenuHTML = subMenuHTML + "<input type='text' id='docPageSearchInput' name='docPageSearchInput' class='searchInput'>"";
+			subMenuHTML = subMenuHTML + "<input type='text' id='docPageSearchInput' name='docPageSearchInput' class='searchInput'>";
 			subMenuHTML = subMenuHTML + "<button style='font-size:10px'><i class='fa fa-search'></i></button>";
 			subMenu.innerHTML=subMenuHTML;
 			
