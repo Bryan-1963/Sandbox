@@ -14,6 +14,8 @@
 	var docPages = []; //array of AnnotatedPhotoObject, loaded by loadDocPages
 	var docPgNum = 0;
 	var webRootLocation = "https://bryan-1963.github.io/Sandbox/";
+	var subMenuName = '';
+	var subMenuCat = '';
 	
 	//==========================================================================================
 	// EVENT LISTENERS
@@ -262,12 +264,15 @@
 		var subTitle = document.getElementById("SubTitle");
 		var subMenu = document.getElementById("SubMenu");
 		var contentHolder = document.getElementById("ContentHolder");
-		var subMenuHTML = ``;
 		var contentTitleBar = document.getElementById("ContentTitle");
 		let iFrameHldr = document.getElementById("iFrameHolder");
 		let documentContentHolder = document.getElementById("documentContentHolder");
 		let docPage = document.getElementById("docPage");
-		
+		let docNavBar = document.getElementById("docNavBar");
+		let schoolNavBar = document.getElementById("schoolNavBar");
+			
+		subMenuName = '';
+		subMenuCat = '';
 		
 		// SWITCH ON CATEGORY
 		switch(category){
@@ -275,22 +280,16 @@
 		  //---------------------------
 		  case 'Test':
 		  //---------------------------	
-		  
+			subMenuName = '';
+			subMenuCat = '';
+			
 			//set the subTitle
 			subTitle.innerHTML = "Test";
 			
 			//set up submenu with document navigation controls
 			subMenu.style.display = "block";
-			subMenuHTML = subMenuHTML + "<!-- Navigate through pages -->";
-			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('first')\"><i class='fa fa-fast-backward'></i></button>";
-			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('prev')\"><i class='fa fa-step-backward'></i></button>";
-			subMenuHTML = subMenuHTML + "<input type='number' id='docPageNumInput' name='docPageNumInput' class='pageNumInput'> <!-- there's a listener on this -->";
-			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('next')\"><i class='fa fa-step-forward'></i></button>";
-			subMenuHTML = subMenuHTML + "<button style='font-size:10px' onclick=\"navDocPage('last')\"><i class='fa fa-fast-forward'></i></button>";
-			subMenuHTML = subMenuHTML + "<!-- Search document content -->";
-			subMenuHTML = subMenuHTML + "<input type='text' id='docPageSearchInput' name='docPageSearchInput' class='searchInput'>";
-			subMenuHTML = subMenuHTML + "<button style='font-size:10px'><i class='fa fa-search'></i></button>";
-			subMenu.innerHTML=subMenuHTML;
+			docNavBar.style.display = "block";
+			schoolNavBar.style.display = "none"
 			
 			//hide the iFrame content
 			contentTitleBar.className = "titleBar3Empty";
@@ -307,23 +306,29 @@
 		  //---------------------------
 		  case 'Home':
 		  //---------------------------		  
+			subMenuName = '';
+			subMenuCat = '';
 			contentSource="Welcome/Welcome.html"
 			subTitle.innerHTML = "Welcome";
-			subMenu.innerHTML="&nbsp";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "none"
 			docPage.innerHTML = "";
 			contentTitleBar.className = "titleBar3Empty";
 			break;
 
 		  //---------------------------
 		  case 'Overview':
-		  //---------------------------		  
-			subMenu.innerHTML="&nbsp";
+		  //---------------------------		
+			subMenuName = '';
+			subMenuCat = '';		  
 			subTitle.innerHTML = "Overview";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "none"
 			docPage.innerHTML = "";
 			contentTitleBar.className = "titleBar3";
 			iFrameHldr.style.display = "block";
@@ -369,10 +374,13 @@
 		  //---------------------------
 		  case 'Maps':
 		  //---------------------------
-			subMenu.innerHTML="&nbsp";
+			subMenuName = '';
+			subMenuCat = '';
 			subTitle.innerHTML = "Maps";
 			contentTitleBar.className = "titleBar3";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "none"
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			docPage.innerHTML = "";
@@ -468,13 +476,16 @@
 
 		  //---------------------------		  
 		  case 'Pre-Org':
-		  //---------------------------		  
-			subMenu.innerHTML="&nbsp";
+		  //---------------------------	
+			subMenuName = '';
+			subMenuCat = '';		  
 			subTitle.innerHTML = "Territorial Kansas";
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "none"
 			docPage.innerHTML = "";
 			
 			if (subCat==='Frontier'){
@@ -494,17 +505,14 @@
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "block"
 			docPage.innerHTML = "";
 			
-			// LOAD SUBMENU html
-			subMenuHTML = ``;
+			// LOAD SUBMENU click parameters
+			subMenuName = "CountyDistricts";
+			subMenuCat = subCat;
 
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('CountyDistricts','Overview','` + subCat + `')">Overview</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('CountyDistricts','Location(s)','` + subCat + `')">Location(s) and Bldgs</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('CountyDistricts','People','` + subCat + `')">People</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('CountyDistricts','Events','` + subCat + `')">Events</a>`;
-
-			subMenu.innerHTML=subMenuHTML;
 			contentSource="CountyDistricts/" + subCat + "/" + subCat + "_Overview.html";
 			contentTitleBar.className = "titleBar3";
 			contentTitleBar.innerHTML="Overview";
@@ -517,16 +525,15 @@
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "block"
 			docPage.innerHTML = "";
 			
-			// LOAD SUBMENU html
-			subMenuHTML = ``;
-
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('PottawatomieMission','Overview','')">Overview</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('PottawatomieMission','Location(s)','')">Location(s) and Bldgs</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('PottawatomieMission','People','')">People</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('PottawatomieMission','Events','')">Events</a>`;
-			subMenu.innerHTML=subMenuHTML;		
+						
+			// LOAD SUBMENU click parameters
+			subMenuName = "PottawatomieMission";
+			subMenuCat = "";
+	
 			
 			contentTitleBar.className = "titleBar3";
 			contentTitleBar.innerHTML="Overview";
@@ -542,17 +549,16 @@
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "block"
 			docPage.innerHTML = "";
+						
+						
+			// LOAD SUBMENU click parameters
+			subMenuName = "CountyHighSchools";
+			subMenuCat = subCat;
 			
-			// LOAD SUBMENU html
-			subMenuHTML = ``;
-
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('CountyHighSchools','Overview','` + subCat + `')">Overview</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('CountyHighSchools','Location(s)','` + subCat + `')">Location(s) and Bldgs</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('CountyHighSchools','People','` + subCat + `')">People</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('CountyHighSchools','Events','` + subCat + `')">Events</a>`;
-
-			subMenu.innerHTML=subMenuHTML;
+	
 			contentSource="CountyHighSchools/" + subCat + "/" + subCat + "_Overview.html";
 			contentTitleBar.className = "titleBar3";
 			contentTitleBar.innerHTML="Overview";			
@@ -568,17 +574,14 @@
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "block"
 			docPage.innerHTML = "";
-			
-			// LOAD SUBMENU html
-			subMenuHTML = ``;
+									
+			// LOAD SUBMENU click parameters
+			subMenuName = "CountyHighSchools";
+			subMenuCat = subCat;
 
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('UnifiedSchoolDistricts','Overview','` + subCat + `')">Overview</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('UnifiedSchoolDistricts','Location(s)','` + subCat + `')">Location(s) and Bldgs</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('UnifiedSchoolDistricts','People','` + subCat + `')">People</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('UnifiedSchoolDistricts','Events','` + subCat + `')">Events</a>`;
-
-			subMenu.innerHTML=subMenuHTML;
 			contentSource="UnifiedSchoolDistricts/" + subCat + "/" + subCat + "_Overview.html";
 			contentTitleBar.className = "titleBar3";
 			contentTitleBar.innerHTML="Overview";	
@@ -593,16 +596,15 @@
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "block"
 			docPage.innerHTML = "";
 
-			// LOAD SUBMENU html
-			subMenuHTML = ``;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('Colleges','Overview','` + subCat + `')">Overview</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('Colleges','Location(s)','` + subCat + `')">Location(s) and Bldgs</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('Colleges','People','` + subCat + `')">People</a>`;
-			subMenuHTML=subMenuHTML + `<a onclick="subMenuClick('Colleges','Events','` + subCat + `')">Events</a>`;
+						
+			// LOAD SUBMENU click parameters
+			subMenuName = "Colleges";
+			subMenuCat = subCat;
 
-			subMenu.innerHTML=subMenuHTML;
 			contentSource="Colleges/" + subCat + "/" + subCat + "_Overview.html";
 			contentTitleBar.className = "titleBar3";
 			contentTitleBar.innerHTML="Overview";
@@ -610,39 +612,46 @@
 
 		  //---------------------------	
 		  case 'References':
-		  //---------------------------			  
-			subMenu.innerHTML="&nbsp";
+		  //---------------------------		
+			subMenuName = "";
+			subMenuCat = "";		  
 			subTitle.innerHTML = "References";	
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "none"
 			docPage.innerHTML = "";
 			contentSource="References/References.html";
-
 			break;
 			
 		  //---------------------------	
 		  case 'SourceMatl':
 		  //---------------------------			  
-			subMenu.innerHTML="&nbsp";
+			subMenuName = "";
+			subMenuCat = "";
 			subTitle.innerHTML = "Source Materials";	
 			contentTitleBar.className = "titleBar3Empty";
 			iFrameHldr.style.display = "block";
 			documentContentHolder.display = "none";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "none"
 			docPage.innerHTML = "";
 			contentSource="SourceMatls/xxxxx.html";
-
 			break;
 
 		  //---------------------------	
 		  case 'Contact':
-		  //---------------------------			  
-			subMenu.innerHTML="&nbsp";
+		  //---------------------------	
+			subMenuName = "";
+			subMenuCat = "";		  
 			subTitle.innerHTML = "Contact";	
 			contentTitleBar.className = "titleBar3Empty";
 			subMenu.style.display = "block";
+			docNavBar.style.display = "none";
+			schoolNavBar.style.display = "none"
 			iFrameHldr.style.display = "block";
 			contentSource="Contact/Contact.html";
 			documentContentHolder.display = "none";
@@ -661,162 +670,16 @@
 	}
 	
 	//==========================================================================================
-	// subMenuClick
+	// schoolSubMenuClick
 	//==========================================================================================
-	function subMenuClick(subMenuName, category, subCat) {
-	  console.log("subMenuClick: subMenuName=" + subMenuName + ", category=" + category + ", subCat=" + subCat);
-	  var source = '';
-	  var contentTitleBar = document.getElementById("ContentTitle");
-	  var contentHolder = document.getElementById("ContentHolder");
+	function schoolSubMenuClick(category) {
+		console.log("schoolSubMenuClick: subMenuName=" + subMenuName + ", category=" + category + ", subCat=" + subMenuCat);
+		var source = '';
+		var contentTitleBar = document.getElementById("ContentTitle");
+		var contentHolder = document.getElementById("ContentHolder");
 	  
-	  //---------------------------
-	  // SWITCH ON SUBMENU NAME
-	  //---------------------------
-	  switch(subMenuName){
-		case 'CountyDistricts':
-			  //---------------------------
-			  // SWITCH ON CATEGORY
-			  //---------------------------
-			switch(category){
-			  case 'Overview':
-				source="CountyDistricts/" + subCat + "/" + subCat + "_Overview.html";
-				contentTitleBar.innerHTML="Overview";
-			  break;
-			  
-			  case 'Location(s)':
-				source="CountyDistricts/" + subCat + "/" + subCat + "_Locations.html";
-				contentTitleBar.innerHTML="Location(s) and Buildings";
-			  break;
-			  
-			  case 'People':
-				source="CountyDistricts/" + subCat + "/" + subCat + "_People.html";
-				contentTitleBar.innerHTML="People";
-			  break;
-			  
-			  case 'Events':
-				source="CountyDistricts/" + subCat + "/" + subCat + "_Events.html";
-				contentTitleBar.innerHTML="Events";
-			  break;
-			  
-			  }
-		break; //end of case CountyDistricts
-		
-		case 'PottawatomieMission':
-			  //---------------------------
-			  // SWITCH ON CATEGORY
-			  //---------------------------
-			switch(category){
-			  case 'Overview':
-				source="PottawatomieMission/PottawatomieMission_Overview.html";
-				contentTitleBar.innerHTML="Overview";
-			  break;
-			  
-			  case 'Location(s)':
-				source="PottawatomieMission/PottawatomieMission_Locations.html";
-				contentTitleBar.innerHTML="Location(s) and Buildings";
-			  break;
-			  
-			  case 'People':
-				source="PottawatomieMission/PottawatomieMission_People.html";
-				contentTitleBar.innerHTML="People";
-			  break;
-			  
-			  case 'Events':
-				source="PottawatomieMission/PottawatomieMission_Events.html";
-				contentTitleBar.innerHTML="Events";
-			  break;
-			  
-			  }
-		break; //end of case PottawatomieMission
-		
-		case 'CountyHighSchools':
-			  //---------------------------
-			  // SWITCH ON CATEGORY
-			  //---------------------------
-			  
-			switch(category){
-			  case 'Overview':
-				source="CountyHighSchools/" + subCat + "/" + subCat + "_Overview.html";
-				contentTitleBar.innerHTML="Overview";
-			  break;
-			  
-			  case 'Location(s)':
-				source="CountyHighSchools/" + subCat + "/" + subCat + "_Locations.html";
-				contentTitleBar.innerHTML="Location(s) and Buildings";
-			  break;
-			  
-			  case 'People':
-				source="CountyHighSchools/" + subCat + "/" + subCat + "_People.html";
-				contentTitleBar.innerHTML="People";
-			  break;
-			  
-			  case 'Events':
-				source="CountyHighSchools/" + subCat + "/" + subCat + "_Events.html";
-				contentTitleBar.innerHTML="Events";
-			  break;
-			  
-			  }
-		break; //end of case CountyHighSchools		
-		
-		case 'UnifiedSchoolDistricts':
-			  //---------------------------
-			  // SWITCH ON CATEGORY
-			  //---------------------------
-			  
-			switch(category){
-			  case 'Overview':
-				source="UnifiedSchoolDistricts/" + subCat + "/" + subCat + "_Overview.html";
-				contentTitleBar.innerHTML="Overview";
-			  break;
-			  
-			  case 'Location(s)':
-				source="UnifiedSchoolDistricts/" + subCat + "/" + subCat + "_Locations.html";
-				contentTitleBar.innerHTML="Location(s) and Buildings";
-			  break;
-			  
-			  case 'People':
-				source="UnifiedSchoolDistricts/" + subCat + "/" + subCat + "_People.html";
-				contentTitleBar.innerHTML="People";
-			  break;
-			  
-			  case 'Events':
-				source="UnifiedSchoolDistricts/" + subCat + "/" + subCat + "_Events.html";
-				contentTitleBar.innerHTML="Events";
-			  break;
-			  
-			  }
-		break; //end of case CountyHighSchools	
-		
-		case 'Colleges':
-			  //---------------------------
-			  // SWITCH ON CATEGORY
-			  //---------------------------
-			  
-			switch(category){
-			  case 'Overview':
-				source="Colleges/" + subCat + "/" + subCat + "_Overview.html";
-				contentTitleBar.innerHTML="Overview";
-			  break;
-			  
-			  case 'Location(s)':
-				source="Colleges/" + subCat + "/" + subCat + "_Locations.html";
-				contentTitleBar.innerHTML="Location(s) and Buildings";
-			  break;
-			  
-			  case 'People':
-				source="Colleges/" + subCat + "/" + subCat + "_People.html";
-				contentTitleBar.innerHTML="People";
-			  break;
-			  
-			  case 'Events':
-				source="Colleges/" + subCat + "/" + subCat + "_Events.html";
-				contentTitleBar.innerHTML="Events";
-			  break;
-			  
-			  }
-		break; //end of case Colleges	
-		
-	    }  //end switch on SubMenuName
+		source = subMenuName + "/" + subMenuCat + "/" + subMenuCat + "_" + category + ".html";
+		contentTitleBar.innerHTML=category;
 
 		// CHANGE THE SOURCE FOR THE iFrame
 		contentHolder.src =source;
