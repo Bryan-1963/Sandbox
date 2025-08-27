@@ -95,6 +95,8 @@
 		let myObject = await fetch(webRootLocation+filePath);
 		let myText = await myObject.text();
 		docPages = JSON.parse(myText);
+		let totDocPgs = document.getElementById("totalDocPages");
+		totalDocPages.innerHTML = " of " + docPages.length;
 		//console.log("docPages.length=" + docPages.length);
 		loadDocPageNum(0);
 	}
@@ -127,7 +129,7 @@
 		console.log("pgNum="+pgNum);
 		let pgNumInput = document.getElementById("docPageNumInput");
 		console.log("pgNumInput.value=" + pgNumInput.value);
-		pgNumInput.value=pgNum+1; //NOTE: pgNum is zero based, people like 1 based
+		pgNumInput.setAttribute("value",pgNum+1); //NOTE: pgNum is zero based, people like 1 based
 		console.log("NOW pgNumInput.value=" + pgNumInput.value);
 	}
 	
