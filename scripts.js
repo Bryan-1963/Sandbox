@@ -91,6 +91,7 @@
 		
 		//fetch the data about the document
 		docPages.length = 0;	
+		console.log("webRootLocation+filePath=|" + webRootLocation+filePath + "|");
 		let myObject = await fetch(webRootLocation+filePath);
 		let myText = await myObject.text();
 		docPages = JSON.parse(myText);
