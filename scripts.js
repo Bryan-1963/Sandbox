@@ -95,7 +95,7 @@
 		let myObject = await fetch(webRootLocation+filePath);
 		let myText = await myObject.text();
 		docPages = JSON.parse(myText);
-		console.log("docPages.length=" + docPages.length);
+		//console.log("docPages.length=" + docPages.length);
 		loadDocPageNum(0);
 	}
 	
@@ -116,16 +116,19 @@
 		
 		//update the annotation page HTML
 		let thisAnnotation = docPages[pgNum]['description'] ;
-		console.log("this annotation=|" + thisAnnotation + "|");
+		//console.log("this annotation=|" + thisAnnotation + "|");
 		thisAnnotation=thisAnnotation.replace(/[\r\n]/g,"<br>");
 		thisAnnotation=thisAnnotation.replace(/<br><br>/g,"<br>");
-		console.log("now this annotation=|" + thisAnnotation + "|");
+		//console.log("now this annotation=|" + thisAnnotation + "|");
 		myHTML="<p class='docPageAnnotation'>" + thisAnnotation + "</p><br>";
 		document.getElementById("docAnnotationHolder").innerHTML=myHTML;
 		
 		//update the page number input box
-		document.getElementById("docPageNumInput").value=pgNum+1; //NOTE: pgNum is zero based, people like 1 based
-		
+		console.log("pgNum="+pgNum);
+		let pgNumInput = document.getElementById("docPageNumInput");
+		console.log("pgNumInput.value=" + pgNumInput.value);
+		pgNumInput.value=pgNum+1; //NOTE: pgNum is zero based, people like 1 based
+		console.log("NOW pgNumInput.value=" + pgNumInput.value);
 	}
 	
 	//==========================================================================================
