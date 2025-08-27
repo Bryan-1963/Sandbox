@@ -189,11 +189,15 @@
 		}
 		
 		.pageNumInput{
-			width: 20px;
+			width: 30px;
+			padding-top: 4px;
+			padding-bottom: 4px;
 		}
 		
 		.searchInput{
 			width: 75px;
+			padding-top: 4px;
+			padding-bottom: 4px;
 		}
 		
 		/* --------------------------------------------- */
@@ -334,6 +338,16 @@
 			font-weight: bold;
 			font-size: 16px;
 			text-decoration: underline;
+		}
+		
+		.link-like {
+			color: blue;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+
+		.link-like:hover {
+			color: red;
 		}
 		
 		/* --------------------------------------------- */
