@@ -68,25 +68,28 @@
 		subMenuCat = '';
 		
 		//set the subTitle
-		var subTitle = document.getElementById("SubTitle");
+		let subTitle = document.getElementById("SubTitle");
 		subTitle.innerHTML = docTitle;
 		
 		//set up submenu with document navigation controls
-		var subMenu = document.getElementById("SubMenu");
+		let subMenu = document.getElementById("SubMenu");
 		subMenu.style.display = "block";
 		docNavBar.style.display = "block";
 		schoolNavBar.style.display = "none"
 		
 		//hide the iFrame content
-		var contentTitleBar = document.getElementById("ContentTitle");
+		let contentTitleBar = document.getElementById("ContentTitle");
 		contentTitleBar.className = "titleBar3Empty";
+		let iFrameHldr = document.getElementById("iFrameHolder");
 		iFrameHldr.style.display = "none";
 		
 		//show the document content
 		let documentContentHolder = document.getElementById("documentContentHolder");
 		documentContentHolder.style.display = "block";
+		let docPage = document.getElementById("docPage");
 		docPage.innerHTML = "";
 		
+		//fetch the data about the document
 		docPages.length = 0;	
 		let myObject = await fetch(webRootLocation+filePath);
 		let myText = await myObject.text();
